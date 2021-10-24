@@ -1,6 +1,5 @@
 mod request;
-pub use request::Request;
+pub use request::GetWisdomQuoteRequest;
 
 mod response;
-pub use response::ResponseOk;
-pub use response::ResponseErr;
+pub use response::GetWisdomQuoteResponse;

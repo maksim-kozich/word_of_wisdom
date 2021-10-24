@@ -1,7 +1,6 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
-pub enum Request {
-    I1,
-    I2,
+pub struct GetWisdomQuoteRequest {
+    pub temp: String,
 }
