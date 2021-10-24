@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "libs/pow-common",
+    "libs/wow-common",
+    "libs/pow-client",
+    "libs/pow-server",
+
+    "bins/wow-client",
+    "bins/wow-server",
+]
