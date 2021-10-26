@@ -1,0 +1,23 @@
+version: '3.7'
+
+x-base: &base
+  build:
+    network: host
+    context: ../
+    dockerfile: docker/Dockerfile
+
+services:
+
+  wow_server:
+    <<: *base
+    container_name: wow_server
+    command: /usr/local/bin/wow-server "0.0.0.0:7878"
+    ports:
+      - '7878:7878/tcp'
+    environment:
+      RUST_LOG: debug
+
+  wow_client:
+    <<: *base
+    container_name: wow_client
+    command: /usr/local/bin/wow-client "wow_server:7878"

@@ -18,8 +18,8 @@ use wow_common::{GetWisdomQuoteRequest, GetWisdomQuoteResponse};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    // Listen for incoming TCP connections on localhost port 7878
-    let listener = TcpListener::bind("127.0.0.1:7878").await?;
+    let addr = std::env::args().nth(1).unwrap_or("127.0.0.1:7878".to_string());
+    let listener = TcpListener::bind(addr).await?;
 
     while let Ok((tcp_stream, socket_addr)) = listener.accept().await {
         println!("new client: {:?}", socket_addr);

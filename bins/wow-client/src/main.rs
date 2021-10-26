@@ -15,7 +15,8 @@ use wow_common::{GetWisdomQuoteRequest, GetWisdomQuoteResponse};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let mut stream = TcpStream::connect("127.0.0.1:7878").await?;
+    let addr = std::env::args().nth(1).unwrap_or("127.0.0.1:7878".to_string());
+    let mut stream = TcpStream::connect(addr).await?;
     let (mut stream_read, mut stream_write) = stream.split();
 
     let request_1 = PowRequest1 {
