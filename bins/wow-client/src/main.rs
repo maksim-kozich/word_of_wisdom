@@ -13,9 +13,6 @@ use pow_common::PowResponse2;
 
 use wow_common::{GetWisdomQuoteRequest, GetWisdomQuoteResponse};
 
-mod client_api;
-mod client_pow;
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     let mut stream = TcpStream::connect("127.0.0.1:7878").await?;
